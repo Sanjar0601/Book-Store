@@ -1,0 +1,23 @@
+{% extends "store/base.html"%}
+
+{% load bootstrap %}
+
+{% block content %}
+<div class="container">
+    <form method="GET">
+        {{filter.form|bootstrap }}
+        </br>
+        <button type="submit" class="btn btn-primary">Search</button>
+
+    </form>
+</div>
+<ul>
+    {% for snippet in filter.qs %}
+    <li>
+
+        <a href="{% url 'snippets'  %}">{{snippet.title}}</a>
+
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

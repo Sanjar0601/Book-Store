@@ -1,0 +1,25 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-9"></div>
+    <div class="col-sm-5">
+        <img src="{{object.cover.url}}" class="coverage">
+    </div>
+	<div class="col-6">
+
+        <h1><p>{{object.title}}</p></h1>
+        <h2>{{object.author}}</h2>
+        <p><h3>{{object.summary}}</h3></p>
+         {% if user.is_authenticated %}
+        <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'book-update' object.id %}" >Update</a>
+        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'book-delete' object.id %}">Delete</a>
+        {% endif %}
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock content %}

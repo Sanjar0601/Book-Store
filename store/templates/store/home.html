@@ -1,0 +1,27 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+		{% for book in books %}
+		<div class="col-lg-3">
+			<img class="thumbnail" src="{{book.cover.url}}">
+			<div class="box-element product">
+				<h6><strong>{{book.author}}</strong></h6>
+				<h4><strong>{{book.title}}</strong></h4>
+				<hr>
+
+
+				<button data-product="#" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Buy</button>
+
+				<a class="btn btn-outline-success" href="{% url 'book-detail' book.id %}">View</a>
+				<h4 style="display: inline-block; float: right"><strong>${{book.price}}</strong></h4>
+
+			</div>
+			<br>
+		</div>
+
+		{% endfor %}
+	</div>
+
+{% endblock content %}
